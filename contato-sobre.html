@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>TnovaX</title>
+    <style>
+        /* POPPINS FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.article-body{ 
+    background: #ffffff;
+}
+body{
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+}
+.header{
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: linear-gradient(rgba(0, 29, 103, 0.6), rgb(4, 104, 0));
+    z-index: 100;
+}
+.nav{
+    position: relative;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: linear-gradient(rgba(0,29,103, 0.6), rgb(4, 104, 0));
+    z-index: 100;
+}
+.nav-logo p{
+    color: rgb(239, 239, 239);
+    font-size: 25px;
+    font-weight: 600;
+}
+.nav-menu ul{
+    display: flex;
+}
+.nav-menu ul li{
+    list-style-type: none;
+}
+.nav-menu ul li .link{
+    text-decoration: none;
+    font-weight: 500;
+    color: rgb(239, 239, 239);
+    padding-bottom: 15px;
+    margin: 0 25px;
+}
+.link:hover, .active{
+    border-bottom: 2px solid #ffffff;
+}
+.nav-menu-btn{
+    display: none;
+}
+@media only screen and (max-width: 786px){
+    .nav-button{
+        display: none;
+    }
+    .nav-menu.responsive{
+        top: 100px;
+    }
+    .nav-menu{
+        position: absolute;
+        top: -800px;
+        display: flex;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.2);
+        width: 100%;
+        height: 90vh;
+        backdrop-filter: blur(20px);
+        transition: .3s;
+    }
+    .nav-menu ul{
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-menu-btn{
+        display: block;
+    }
+    .nav-menu-btn i{
+        font-size: 25px;
+        color: #fff;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .3s;
+    }
+    .nav-menu-btn i:hover{
+        background: rgba(255, 255, 255, 0.15);
+    }
+    .nav-menu ul li .link{
+    text-decoration: none;
+    font-weight: 500;
+    color: rgb(0, 0, 0);;
+    padding-bottom: 15px;
+    margin: 0 25px;
+    }
+    .link:hover, .active{
+    border-bottom: 2px solid #000000;
+    }
+}
+.container{
+    position: relative;
+    display: flex;
+    width: 920px;
+    top: 0;
+    padding-right: var(--bs-gutter-x, .75rem);
+    padding-left: var(--bs-gutter-x, .75rem);
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 100px;
+    z-index: 100%;
+    justify-content: center;
+    padding: 20px;
+    height: auto;
+    max-width: 100%;
+}
+.posts{
+    width: 790px;
+    float: left; 
+  
+}
+.post{
+    padding: 30px;
+    display: block;
+    line-height: 2;
+    margin-bottom: 15px;  
+    background-color: #fff;
+}
+.h2{
+    color: black;
+}
+.data-post{
+    font-size: 0.8em;
+    margin-bottom: 15px;
+    display: block;
+}
+.p{
+    font-size: 20px;
+    font-weight: normal;
+    text-align: justify;
+}
+.img{ 
+    max-width: 100%;
+    height: auto;
+}
+@media (max-width: 768px) {
+    /* Estilos para dispositivos móveis (exemplo: largura máxima de 768px) */
+} 
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+input, textarea {
+    width: 100%;      
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+input[type="submit"] {
+    background: linear-gradient(rgba(0,29,103, 0.6), rgb(4, 104, 0));
+    color: white;
+    border: none;
+    cursor: pointer;
+
+}
+.star-rating {
+    unicode-bidi: bidi-override;
+    font-size: 25px;
+    height: 75px;
+    width: 550px;
+    margin: 15px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    direction: rtl;
+}
+.star-rating input.star {
+    display: none;
+}
+.star-rating label.star {
+    font-size: 25px;
+    color: #ccc;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    margin-right: 15px;
+}
+.star-rating label.star:before {
+    content: '\2605';
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.star-rating input.star:checked ~ label.star:before {
+    color: #FFD700;
+}
+footer {
+    background-color: #003825;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+</style>
+</head>
+<body class="article-body">
+    <div id="main-header" class="header">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>TnovaX.</p>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="index.html" class="link "> Página inicial</a></li>
+                    <li><a href="blog.html" class="link ">Blog</a></li>
+                    <li><a href="serviços.html" class="link">Serviços</a></li>
+                    <li><a href="portfólio.html" class="link">Portfólio</a></li> 
+                    <li><a href="contato-sobre.html" class="link active">Contato e sobre</a></li>
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+       
+    </div>
+    
+    
+    <script>
+       
+        function myMenuFunction() {
+         var i = document.getElementById("navMenu");
+     
+         if(i.className === "nav-menu") {
+             i.className += " responsive";
+         } else {
+             i.className = "nav-menu";
+         }
+        }
+      
+    </script>
+    
+    <section id="main-container" class="container">
+        <div class="posts">
+            <div class="post">
+                <h2>Contato</h2>
+                <p>A página de contato da TnovaX é um canal aberto para comunicação e colaboração. Os visitantes são incentivados a entrar em contato para discutir projetos potenciais, fazer perguntas ou simplesmente compartilhar feedback. Um formulário de contato simplificado torna o processo fácil e conveniente, enquanto uma lista de perguntas frequentes fornece respostas rápidas às dúvidas mais comuns.</p>
+                <br>
+            </div>
+            <div class="post">
+                <h2>Deixe seu Feedback</h2>
+                <form action="#" method="post">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                     
+                <div class="star-rating">
+                    <input type="radio" id="star1" class="star" name="rating" value="1">
+                    <label class="star" for="star1"></label>
+                    <input type="radio" id="star2" class="star" name="rating" value="2">
+                    <label class="star" for="star2"></label>
+                    <input type="radio" id="star3" class="star" name="rating" value="3">
+                    <label class="star" for="star3"></label>
+                    <input type="radio" id="star4" class="star" name="rating" value="4">
+                    <label class="star" for="star4"></label>
+                    <input type="radio" id="star5" class="star" name="rating" value="5">
+                    <label class="star" for="star5"></label>
+                </div>
+
+                    <label for="comments">Comentários:</label>
+                    <textarea id="comments" name="comments" rows="4"></textarea>
+                
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+            <div class="post">     
+                <h2>Entre em Contato</h2>
+                <p>Preencha o formulário abaixo e entraremos em contato com você assim que possível.</p>
+                <form action="#" method="post">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+            <div class="post">
+                <h2>Sobre a TnovaX</h2>
+                <span class="data-post">03 de Abril de 2024</span>
+                <p>Na TnovaX, somos apaixonados por inovação e tecnologia. Fundada por uma equipe de entusiastas e especialistas do setor, nossa empresa é impulsionada pela missão de criar soluções tecnológicas que transformam a maneira como vivemos, trabalhamos e nos conectamos</p>
+                <br>
+                <p>Desde o início, nos dedicamos a desafiar os limites do possível, buscando constantemente novas maneiras de utilizar a tecnologia para resolver problemas complexos e atender às necessidades emergentes do mundo moderno. Com uma abordagem centrada no usuário e um compromisso inabalável com a qualidade, estamos sempre buscando superar as expectativas de nossos clientes e parceiros.</p>
+                <br>
+                <P>Nossa equipe diversificada de engenheiros, designers, desenvolvedores e especialistas em negócios colabora de forma integrada para conceber e criar soluções inovadoras que impulsionam o progresso e promovem o crescimento sustentável. Estamos na vanguarda das últimas tendências e tecnologias, capacitando nossos clientes a navegarem com sucesso em um mundo cada vez mais digital.</P>
+                <br>
+                <p>Na TnovaX, acreditamos que o futuro pertence àqueles que ousam inovar e transformar. Estamos comprometidos em ser líderes de mercado, inspirando e capacitando outros a alcançarem seu pleno potencial por meio da tecnologia. Junte-se a nós em nossa jornada para moldar o futuro - juntos, podemos alcançar grandes feitos e fazer uma diferença significativa no mundo.</p>
+                <br>
+                <img src="" width="720">
+            </div>
+            </div> 
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 TnovaX</p>
+    </footer>
+    </body>
+    </html>
